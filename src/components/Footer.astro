@@ -1,0 +1,101 @@
+---
+import { site } from '../data/site';
+---
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="/images/logo.png" alt={site.name} width="120" height="95" class="footer-logo" />
+    </div>
+    <div class="footer-contact">
+      <h4>Contact</h4>
+      <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+      <p>{site.address.street}</p>
+      <p>{site.address.suburb} {site.address.state} {site.address.postcode}</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <p><a href="/services/">Our Services</a></p>
+      <p><a href="/team/">Meet the Team</a></p>
+      <p><a href="/faqs/">FAQs</a></p>
+      <p><a href="/contact/">Contact Us</a></p>
+      <p><a href="/privacy-policy/">Privacy Policy</a></p>
+    </div>
+    <div class="footer-map">
+      <img src="/images/location-map.png" alt={`Map showing ${site.address.full}`} width="300" height="215" loading="lazy" />
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; {new Date().getFullYear()} {site.name}. All rights reserved.</p>
+    <p class="footer-credit">Website by <a href="https://yesai.au" target="_blank" rel="noopener">Yes AI</a></p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-footer-bg);
+    color: #ccc;
+    padding: 3rem 1.5rem 0;
+  }
+  .footer-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding-bottom: 2rem;
+  }
+  .footer-logo {
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+  }
+  .footer-contact h4,
+  .footer-links h4 {
+    color: #fff;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+  .footer-contact p,
+  .footer-links p {
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+  .footer-contact a,
+  .footer-links a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-contact a:hover,
+  .footer-links a:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
+  .footer-map img {
+    border-radius: 8px;
+    opacity: 0.9;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.1);
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.85rem;
+    opacity: 0.6;
+    display: flex;
+    justify-content: space-between;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  .footer-credit a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  @media (max-width: 600px) {
+    .footer-bottom {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

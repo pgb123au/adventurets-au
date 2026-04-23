@@ -1,0 +1,190 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+---
+
+<Base title="Contact" description="Contact Adventure Therapy Services in Pakenham, Victoria. Get in touch about occupational therapy, equine-assisted therapy, and NDIS services.">
+  <section class="page-header">
+    <div class="container">
+      <h1>Contact Us</h1>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="container contact-grid">
+      <div class="contact-form-col">
+        <h2>Send Us a Message</h2>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you/">
+          <input type="hidden" name="form-name" value="contact" />
+          <p class="hidden-field">
+            <label>Don't fill this out: <input name="bot-field" /></label>
+          </p>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" />
+          </div>
+          <div class="form-group">
+            <label for="message">Message *</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+
+        <p class="enquiry-note">For new client enquiries, you can also use our <a href={site.enquiryFormUrl} target="_blank" rel="noopener noreferrer">enquiry form</a>.</p>
+      </div>
+
+      <div class="contact-info-col">
+        <div class="info-card">
+          <h3>Email</h3>
+          <p><a href={`mailto:${site.email}`}>{site.email}</a></p>
+        </div>
+        <div class="info-card">
+          <h3>Main Location</h3>
+          <p>{site.address.street}</p>
+          <p>{site.address.suburb}, {site.address.state} {site.address.postcode}</p>
+        </div>
+        <!-- Second location removed per client request -->
+        <div class="info-card map-card">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.5!2d145.4897!3d-38.0746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2z309+Army+Road+Pakenham!5e0!3m2!1sen!2sau!4v1"
+            width="100%"
+            height="250"
+            style="border:0; border-radius: 8px;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Adventure Therapy Services location"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  .contact-section {
+    padding: 3rem 0;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  .contact-form-col h2 {
+    font-size: 1.6rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+  .hidden-field {
+    display: none;
+  }
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+  .form-group label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: var(--color-text);
+  }
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(21,182,182,0.1);
+  }
+  .submit-btn {
+    display: block;
+    width: 100%;
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .submit-btn:hover {
+    background: var(--color-primary-dark);
+  }
+  .enquiry-note {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+  }
+  .enquiry-note a {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+  .info-card {
+    background: var(--color-bg-light);
+    padding: 1.25rem;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+  }
+  .info-card h3 {
+    font-size: 0.95rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .info-card p {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: 0.2rem;
+  }
+  .info-card a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .info-card a:hover {
+    text-decoration: underline;
+  }
+  .map-card {
+    padding: 0;
+    overflow: hidden;
+    background: none;
+  }
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

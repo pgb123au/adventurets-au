@@ -1,0 +1,202 @@
+---
+import Base from '../../layouts/Base.astro';
+import { team } from '../../data/site';
+
+export function getStaticPaths() {
+  return team.map((member) => ({
+    params: { slug: member.slug },
+    props: { member },
+  }));
+}
+
+const { member } = Astro.props;
+---
+
+<Base
+  title={`${member.name} - ${member.role}`}
+  description={`Meet ${member.name}, ${member.role} at Adventure Therapy Services. ${member.specialInterests.slice(0, 3).join(', ')}.`}
+>
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>{member.name}</h1>
+    <p class="header-role">{member.role}</p>
+    <div class="header-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="member-content">
+    <div class="container">
+      <a href="/team/" class="back-link">&larr; Back to Team Page</a>
+
+      <div class="member-layout">
+        <div class="member-sidebar">
+          <img src={member.image} alt={member.name} class="member-photo" loading="eager" />
+          <h2 class="member-name">{member.name}</h2>
+          <p class="member-role">{member.role}</p>
+          <div class="member-schedule">
+            <p><strong>Work Days:</strong> {member.workDays}</p>
+            <p><strong>Times:</strong> {member.workTimes}</p>
+          </div>
+          <div class="member-details">
+            <h4>Special Interest Areas</h4>
+            <ul>
+              {member.specialInterests.map((interest: string) => (
+                <li>{interest}</li>
+              ))}
+            </ul>
+          </div>
+          {member.serviceTypes && (
+            <div class="member-details">
+              <h4>Service Type</h4>
+              <ul>
+                {member.serviceTypes.map((type: string) => (
+                  <li>{type}</li>
+                ))}
+              </ul>
+            </div>
+          )}
+        </div>
+
+        <div class="member-bio">
+          <h2 class="bio-heading">Get to know <span class="accent">{member.shortName}</span></h2>
+          {member.bio && member.bio.map((paragraph: string) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    padding: 3rem 1.5rem 0;
+    text-align: center;
+    position: relative;
+  }
+  .page-header h1 {
+    color: #fff;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: 0.5rem;
+  }
+  .header-role {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+  .header-wave {
+    line-height: 0;
+    margin-top: 1rem;
+  }
+  .header-wave svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+  }
+
+  .member-content {
+    padding: 2rem 0 4rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    transition: all 0.2s;
+  }
+  .back-link:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+
+  .member-layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  .member-photo {
+    width: 100%;
+    max-width: 280px;
+    border-radius: 12px;
+    object-fit: cover;
+    aspect-ratio: 4/5;
+  }
+
+  .member-sidebar .member-name {
+    font-size: 1.3rem;
+    color: var(--color-text);
+    margin-top: 1rem;
+    margin-bottom: 0.25rem;
+  }
+  .member-sidebar .member-role {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .member-schedule {
+    background: var(--color-bg-light);
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .member-schedule p {
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+    color: var(--color-text);
+  }
+
+  .member-details h4 {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    margin-top: 1rem;
+  }
+  .member-details ul {
+    list-style: disc;
+    padding-left: 1.25rem;
+  }
+  .member-details li {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    padding: 0.2rem 0;
+  }
+
+  .bio-heading {
+    font-size: 1.8rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+  .bio-heading .accent {
+    color: var(--color-primary);
+    font-style: italic;
+  }
+
+  .member-bio p {
+    font-size: 1rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .member-layout {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .member-photo {
+      max-width: 250px;
+    }
+  }
+</style>

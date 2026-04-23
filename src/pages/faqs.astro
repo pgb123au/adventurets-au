@@ -1,0 +1,274 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+const faqSections = [
+  {
+    title: "General",
+    id: "general",
+    questions: [
+      {
+        q: "When and how can I talk to my clinician?",
+        a: "You can contact your clinician via email or through the enquiry form on our website. Your clinician will respond during their working hours."
+      },
+      {
+        q: "What is the best way to contact my clinician?",
+        a: "Email is the best way to contact your clinician. You can also submit an enquiry through our website form."
+      },
+      {
+        q: "How do I schedule therapy appointments?",
+        a: "Appointments are scheduled directly with your clinician. Contact us to get started."
+      },
+      {
+        q: "Do you run group sessions?",
+        a: "Yes! We run Social Connection Groups. These are thoughtfully designed to foster positive, supported social interaction among participants. Visit our Social Connection Group page for more information."
+      },
+      {
+        q: "How can I prepare for my/my child's OT session?",
+        a: "Wear comfortable clothes suitable for outdoor activities. Bring water, sunscreen, and a hat for outdoor clinic sessions. Let your clinician know about any changes in medication or health."
+      },
+      {
+        q: "Is Adventure Therapy Services right for me/my child?",
+        a: "We work with kids & youth, families, young adults, parents, individuals experiencing mental health challenges, and anyone interested in horses, animals, and nature. Contact us to discuss your needs."
+      },
+    ]
+  },
+  {
+    title: "Equine Therapy & Outdoor Clinic",
+    id: "equine",
+    questions: [
+      {
+        q: "What does equine-assisted therapy involve?",
+        a: "Equine-assisted therapy uses interactions with horses to achieve therapy goals. Activities may include grooming, leading, riding, and stable management, all facilitated by qualified occupational therapists."
+      },
+      {
+        q: "Is there evidence supporting EAT?",
+        a: "Yes, research supports equine-assisted therapy for increasing overall adaptive behaviours, participation in self-care, social interactions, and improvement of balance, gross motor skills, and centre of gravity."
+      },
+      {
+        q: "How do I get to the outdoor clinic?",
+        a: `Our outdoor clinic is located at ${site.address.full}.`
+      },
+      {
+        q: "How soon can we get started at the outdoor clinic?",
+        a: "After completing an initial telehealth assessment and face-to-face sessions, we'll schedule your outdoor clinic induction. This process ensures everyone's safety when working with animals."
+      },
+      {
+        q: "What should I/my child bring to EAT/outdoor clinic sessions?",
+        a: "Wear closed-toe shoes and long pants. Bring water, sunscreen, a hat, and weather-appropriate clothing. We'll provide all equipment needed for therapy activities."
+      },
+      {
+        q: "Do I stay for the session or do I need to go?",
+        a: "This depends on the individual therapy plan and your child's needs. Your clinician will discuss the best approach with you."
+      },
+    ]
+  },
+  /* OMT FAQ section removed — service no longer offered (2026-04-23) */
+  {
+    title: "Resources",
+    id: "resources",
+    questions: [
+      {
+        q: "What should I do when waiting for therapy?",
+        a: "While waiting, you can explore resources we recommend including information about NDIS access, advocacy services, and self-help programs."
+      },
+    ]
+  },
+];
+---
+
+<Base title="FAQs" description="Frequently asked questions about occupational therapy, equine-assisted therapy, art therapy, outdoor therapy, and NDIS services at Adventure Therapy Services in Pakenham.">
+  <section class="page-header">
+    <div class="container">
+      <h1>Frequently Asked Questions</h1>
+    </div>
+  </section>
+
+  <section class="faqs-section">
+    <div class="container">
+      <!-- FAQ Navigation -->
+      <nav class="faq-nav" aria-label="FAQ sections">
+        {faqSections.map((section) => (
+          <a href={`#${section.id}`} class="faq-nav-link">{section.title}</a>
+        ))}
+      </nav>
+
+      {faqSections.map((section) => (
+        <div class="faq-category" id={section.id}>
+          <h2>{section.title}</h2>
+          <div class="faq-list">
+            {section.questions.map((faq) => (
+              <details class="faq-item">
+                <summary>{faq.q}</summary>
+                <p>{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="faq-category" id="resources-links">
+        <h2>Helpful Resources</h2>
+        <div class="resources-grid">
+          <div class="resource-group">
+            <h3>NDIS</h3>
+            <ul>
+              <li><a href="https://www.linkhc.org.au/ndis-early-childhood-early-intervention/" target="_blank" rel="noopener noreferrer">NDIS Early Childhood Early Intervention</a></li>
+              <li><a href="https://www.ndis.gov.au/about-us/operational-guidelines/access-ndis-operational-guideline/access-ndis-early-intervention-requirements" target="_blank" rel="noopener noreferrer">NDIS Early Intervention Requirements</a></li>
+              <li><a href="https://www.emerge.org.au/ndis" target="_blank" rel="noopener noreferrer">Emerge - NDIS Support</a></li>
+              <li><a href="https://www.supportcalculator.com.au/" target="_blank" rel="noopener noreferrer">NDIS Supports Calculator</a></li>
+            </ul>
+          </div>
+          <div class="resource-group">
+            <h3>Advocacy</h3>
+            <ul>
+              <li><a href="https://providers.dffh.vic.gov.au/disability-advocacy-organisations" target="_blank" rel="noopener noreferrer">Disability Advocacy Organisations</a></li>
+              <li><a href="https://www.vmiac.org.au/info/ndis/" target="_blank" rel="noopener noreferrer">VMIAC - NDIS Info</a></li>
+              <li><a href="https://riac.org.au/" target="_blank" rel="noopener noreferrer">RIAC</a></li>
+            </ul>
+          </div>
+          <!-- OMT & Breathing resources removed — service no longer offered -->
+          <div class="resource-group">
+            <h3>Crisis Support (24 hours)</h3>
+            <ul>
+              <li><a href="https://www.beyondblue.org.au" target="_blank" rel="noopener noreferrer">Beyond Blue</a></li>
+              <li><a href="https://raisingchildren.net.au/" target="_blank" rel="noopener noreferrer">Raising Children Network</a></li>
+              <li><a href="https://services.dffh.vic.gov.au/child-protection-contacts" target="_blank" rel="noopener noreferrer">Child Protection Contacts</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQPage JSON-LD -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqSections.flatMap(s => s.questions.map(q => ({
+      "@type": "Question",
+      "name": q.q,
+      "acceptedAnswer": { "@type": "Answer", "text": q.a }
+    })))
+  })} />
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    color: #fff;
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .page-header h1 {
+    font-size: 2.5rem;
+  }
+  .faqs-section {
+    padding: 3rem 0;
+  }
+  .faq-nav {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .faq-nav-link {
+    padding: 0.5rem 1.25rem;
+    border-radius: 20px;
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .faq-nav-link:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .faq-category {
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .faq-category h2 {
+    font-size: 1.6rem;
+    color: var(--color-primary);
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--color-primary-light);
+  }
+  .faq-item {
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 0.75rem;
+    overflow: hidden;
+  }
+  .faq-item summary {
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    transition: background 0.2s;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-item summary::after {
+    content: "+";
+    font-size: 1.3rem;
+    color: var(--color-primary);
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .faq-item[open] summary::after {
+    content: "−";
+  }
+  .faq-item summary:hover {
+    background: var(--color-bg-light);
+  }
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+  .faq-item p {
+    padding: 0 1.25rem 1rem;
+    color: var(--color-text-light);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 2rem;
+  }
+  .resource-group h3 {
+    font-size: 1rem;
+    color: var(--color-text);
+    margin-bottom: 0.75rem;
+  }
+  .resource-group ul {
+    padding-left: 1.25rem;
+  }
+  .resource-group li {
+    list-style: disc;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+  }
+  .resource-group a {
+    color: var(--color-primary);
+    text-decoration: none;
+  }
+  .resource-group a:hover {
+    text-decoration: underline;
+  }
+  @media (max-width: 600px) {
+    .resources-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

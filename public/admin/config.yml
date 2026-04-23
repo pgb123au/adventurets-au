@@ -1,0 +1,120 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "homepage"
+        label: "Homepage"
+        file: "src/data/homepage.json"
+        fields:
+          - label: "Hero Tagline"
+            name: "tagline"
+            widget: "string"
+          - label: "CTA Button Text"
+            name: "ctaText"
+            widget: "string"
+            default: "Enquire Now"
+          - label: "Section: What We Do"
+            name: "whatWeDoTitle"
+            widget: "string"
+            default: "What We Do"
+          - label: "Section: Who We Work With"
+            name: "whoWeWorkWithTitle"
+            widget: "string"
+            default: "Who We Work With"
+          - label: "Who We Work With Items"
+            name: "whoWeWorkWith"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "name", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+          - label: "Our Purpose"
+            name: "purpose"
+            widget: "text"
+          - label: "Our Mission"
+            name: "mission"
+            widget: "text"
+
+  - name: "services"
+    label: "Services"
+    files:
+      - name: "service-list"
+        label: "Service List"
+        file: "src/data/services.json"
+        fields:
+          - label: "Services"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "URL Slug", name: "slug", widget: "string" }
+              - { label: "Short Description", name: "shortDescription", widget: "text" }
+              - { label: "Image", name: "image", widget: "image" }
+
+  - name: "team"
+    label: "Team Members"
+    files:
+      - name: "team-list"
+        label: "Team"
+        file: "src/data/team.json"
+        fields:
+          - label: "Members"
+            name: "items"
+            widget: "list"
+            fields:
+              - { label: "Full Name", name: "name", widget: "string" }
+              - { label: "Short Name", name: "shortName", widget: "string" }
+              - { label: "URL Slug", name: "slug", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+              - { label: "Work Days", name: "workDays", widget: "string" }
+              - { label: "Work Times", name: "workTimes", widget: "string" }
+              - { label: "Photo", name: "image", widget: "image" }
+              - { label: "Special Interests", name: "specialInterests", widget: "list", field: { label: "Interest", name: "interest", widget: "string" } }
+              - { label: "Service Types", name: "serviceTypes", widget: "list", field: { label: "Type", name: "type", widget: "string" } }
+              - { label: "Bio Paragraphs", name: "bio", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+
+  - name: "site"
+    label: "Site Settings"
+    files:
+      - name: "site-settings"
+        label: "Business Details"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "Business Name", name: "name", widget: "string" }
+          - { label: "Tagline", name: "tagline", widget: "string" }
+          - { label: "Meta Description", name: "description", widget: "text" }
+          - { label: "Email", name: "email", widget: "string" }
+          - label: "Address"
+            name: "address"
+            widget: "object"
+            fields:
+              - { label: "Street", name: "street", widget: "string" }
+              - { label: "Suburb", name: "suburb", widget: "string" }
+              - { label: "State", name: "state", widget: "string" }
+              - { label: "Postcode", name: "postcode", widget: "string" }
+
+  - name: "faq"
+    label: "FAQs"
+    files:
+      - name: "faq-items"
+        label: "FAQ Sections"
+        file: "src/data/faqs.json"
+        fields:
+          - label: "Sections"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "Section Title", name: "title", widget: "string" }
+              - { label: "Section ID", name: "id", widget: "string" }
+              - label: "Questions"
+                name: "questions"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "q", widget: "string" }
+                  - { label: "Answer", name: "a", widget: "text" }

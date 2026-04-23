@@ -1,0 +1,167 @@
+---
+import Base from '../../layouts/Base.astro';
+import { services } from '../../data/site';
+
+// Extended service descriptions matching WP content
+const serviceDescriptions: Record<string, string[]> = {
+  "skill-building-ot": [
+    "If disability or trauma is impacting your daily functioning in everyday tasks, we can help you to build skills to increase independence.",
+    "Skill building therapy is completed at your home, school, in the community or at our outdoor clinic. We work with you to achieve your individual goals, tailored to your needs.",
+  ],
+  "parent-coaching": [
+    "When working with a child with a disability, it is best practice for the parent to be involved so that therapy is most effective.",
+    "In individual parent coaching sessions, we identify specific problems and strategies to address them. The goal of these sessions is to provide parents with tools to support independence, relationships, and the structure of daily life as a family.",
+    "Parent coaching is conducted via phone or video call to fit in with the busy parent lifestyle.",
+  ],
+  "equine-assisted-therapy": [
+    "Develop your skills and achieve your goals with horses.",
+    "Facilitated by Occupational Therapists with extensive equestrian experience. We value a practical, person centered approach to therapy.",
+    "We work with individuals and families experiencing challenges relating to ASD, ADHD, intellectual disability, mental health, social skills, motor skills, and family dynamics.",
+  ],
+  "social-skills-group-therapy": [
+    "Dynamic occupational therapy social connection groups tailored to enhance social interaction and foster meaningful connections among participants. Our clients, who encounter challenges in forming and maintaining friendships, find a supportive haven within our carefully crafted programs. Read on to find out why our Social Connection Groups stand out.",
+  ],
+  "primitive-reflex-integration": [
+    "Primitive reflexes are vital for child development. These instinctive movements, known as primitive reflexes, should naturally integrate into more mature voluntary actions as infants grow. However, if these reflexes persist beyond the typical age range, they can impact a child's development. Our skilled clinicians test for retained reflexes and create movement programs to facilitate integration, promoting improved independence in daily activities.",
+  ],
+  "art-therapy": [
+    "Creative expression as a pathway to healing and growth.",
+    "Our art therapy sessions use sensorimotor approaches to support regulation, self-expression, and wellbeing. Whether painting, drawing, sculpting, or other creative mediums, each session is tailored to the individual's needs and interests.",
+  ],
+  "outdoor-therapy": [
+    "Nature-based therapeutic interventions that harness the healing power of the outdoors.",
+    "Our outdoor therapy sessions take place in natural environments where participants can connect with the land, animals, and each other — building skills, confidence, and connection.",
+  ],
+  "ndis-plan-reviews-functional-capacity-assessments": [
+    "We are able to complete OT documentation required to help assist your NDIS plan review.",
+  ],
+};
+
+// WP services layout order (matching screenshot)
+const serviceOrder = [
+  "skill-building-ot",
+  "parent-coaching",
+  "equine-assisted-therapy",
+  "social-skills-group-therapy",
+  "primitive-reflex-integration",
+  "art-therapy",
+  "outdoor-therapy",
+  "ndis-plan-reviews-functional-capacity-assessments",
+];
+
+const orderedServices = serviceOrder.map(slug => services.find(s => s.slug === slug)!);
+---
+
+<Base title="Services" description="Explore our occupational therapy services including equine-assisted therapy, skill building OT, primitive reflex integration, parent coaching, social connection groups, art therapy, outdoor therapy, and NDIS support in Pakenham, Victoria.">
+  <!-- Page Header with wave -->
+  <section class="page-header">
+    <h1>Services</h1>
+    <div class="header-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="services-list">
+    <div class="container">
+      <!-- Services in 2-column card grid (matching WP layout) -->
+      <div class="services-card-grid">
+        {orderedServices.map((service) => (
+          <div class="service-card">
+            <h2><a href={`/services/${service.slug}/`}>{service.name}</a></h2>
+            <div class="service-description">
+              {(serviceDescriptions[service.slug] || [service.shortDescription]).map((para) => (
+                <p>{para}</p>
+              ))}
+            </div>
+            <a href={`/services/${service.slug}/`} class="read-more-btn">Read More</a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    padding: 3rem 1.5rem 0;
+    text-align: center;
+    position: relative;
+  }
+  .page-header h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .header-wave {
+    line-height: 0;
+    margin-top: 1rem;
+  }
+  .header-wave svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+  }
+
+  .services-list {
+    padding: 3rem 0 4rem;
+  }
+
+  .services-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+
+  .service-card {
+    padding-bottom: 2rem;
+  }
+
+  .service-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+  .service-card h2 a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .service-card h2 a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .service-description p {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+  }
+
+  .read-more-btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.6rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 0.5rem;
+    transition: all 0.2s;
+  }
+  .read-more-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .services-card-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+</style>

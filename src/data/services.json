@@ -1,0 +1,52 @@
+{
+  "items": [
+    {
+      "name": "Equine-Assisted Therapy",
+      "slug": "equine-assisted-therapy",
+      "shortDescription": "Develop your skills and achieve your goals with horses. Facilitated by Occupational Therapists with extensive equestrian experience.",
+      "image": "/images/services/equine-therapy.jpg"
+    },
+    {
+      "name": "Skill Building OT",
+      "slug": "skill-building-ot",
+      "shortDescription": "If disability or trauma is impacting your daily functioning in everyday tasks, we can help you to build skills to increase independence.",
+      "image": "/images/services/skill-building.jpg"
+    },
+    {
+      "name": "Primitive Reflex Integration",
+      "slug": "primitive-reflex-integration",
+      "shortDescription": "Primitive reflexes are vital for child development. Our skilled clinicians test for retained reflexes and create movement programs to facilitate integration.",
+      "image": "/images/services/primitive-reflex.png"
+    },
+    {
+      "name": "Parent Coaching",
+      "slug": "parent-coaching",
+      "shortDescription": "When working with a child with a disability, it is best practice for the parent to be involved so that therapy is most effective.",
+      "image": "/images/services/parent-coaching.jpg"
+    },
+    {
+      "name": "Social Connection Group",
+      "slug": "social-skills-group-therapy",
+      "shortDescription": "Dynamic occupational therapy social connection groups tailored to enhance social interaction and foster meaningful connections among participants.",
+      "image": "/images/services/social-skills.jpg"
+    },
+    {
+      "name": "Art Therapy",
+      "slug": "art-therapy",
+      "shortDescription": "Creative expression as a pathway to healing and growth. Our art therapy sessions use sensorimotor approaches to support regulation, self-expression, and wellbeing.",
+      "image": "/images/services/art-therapy.jpg"
+    },
+    {
+      "name": "Outdoor Therapy",
+      "slug": "outdoor-therapy",
+      "shortDescription": "Nature-based therapeutic interventions that harness the healing power of the outdoors to build skills, confidence, and connection.",
+      "image": "/images/services/outdoor-therapy.jpg"
+    },
+    {
+      "name": "NDIS Plan Reviews & Functional Capacity Assessments",
+      "slug": "ndis-plan-reviews-functional-capacity-assessments",
+      "shortDescription": "We complete OT documentation required to help assist your NDIS plan review, including letters of support, reports, and therapy plans.",
+      "image": "/images/services/ndis-reviews.jpg"
+    }
+  ]
+}

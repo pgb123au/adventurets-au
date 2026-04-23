@@ -1,0 +1,511 @@
+---
+import Base from '../layouts/Base.astro';
+import { site, services, values, homepage } from '../data/site';
+
+// Who We Work With data loaded from homepage.json (editable via CMS)
+const whoIcons = homepage.whoWeWorkWith;
+---
+
+<Base>
+  <!-- Hero Slideshow -->
+  <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide hero-slide-1"></div>
+      <div class="hero-slide hero-slide-2"></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-tagline">{site.tagline}</p>
+      <a href={site.enquiryFormUrl} class="hero-cta" target="_blank" rel="noopener noreferrer">Enquire Now</a>
+    </div>
+    <!-- Teal organic wave overlapping hero bottom -->
+    <div class="hero-wave-teal">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="var(--color-primary)" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- Heading below hero (matching WP layout) -->
+  <section class="hero-heading">
+    <h1>Occupational Therapy Services</h1>
+  </section>
+
+  <!-- What We Do - Icon Card Grid (matching WP) -->
+  <section class="what-we-do">
+    <div class="container">
+      <h2>{homepage.whatWeDoTitle}</h2>
+      <div class="service-icon-grid">
+        {services.map((s) => (
+          <a href={`/services/${s.slug}/`} class="service-icon-card">
+            <div class="icon-card-image">
+              <img src={s.image} alt={s.name} loading="lazy" />
+            </div>
+            <span class="icon-card-label">{s.name}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Who We Work With - Icon Tiles (matching WP) -->
+  <section class="who-we-work-with">
+    <div class="container">
+      <h2>{homepage.whoWeWorkWithTitle}</h2>
+      <div class="who-grid">
+        {whoIcons.map((item) => (
+          <div class="who-tile">
+            <div class="who-tile-image">
+              <img src={item.image} alt={item.name} loading="lazy" />
+            </div>
+            <span class="who-tile-label">{item.name}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="story">
+    <div class="container">
+      <h2>Our Story</h2>
+      <div class="story-grid">
+        <div class="story-col">
+          <h3 class="story-heading">Our Purpose</h3>
+          <p>ATS Founders, Nicky and Kat both experienced physical injuries and mental health challenges in their younger years. This created their drive to support others through their own unique journey. Find out more about the experiences that created the purpose behind ATS <a href="/team/">here</a>.</p>
+
+          <h3 class="story-heading">Our Mission</h3>
+          <p>ATS exists to support recovery and facilitate growth. We do this by building skills for life and sharing the empowering qualities of animals and nature.</p>
+        </div>
+        <div class="story-col">
+          <h3 class="story-heading">Our Values</h3>
+          <div class="values-list">
+            {values.map((v) => (
+              <div class="value-item">
+                <img src={v.icon} alt={v.name} width="48" height="48" loading="lazy" />
+                <span>{v.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Preview Cards -->
+  <section class="services-preview">
+    <div class="container">
+      <h2>Our Services</h2>
+      <div class="services-grid">
+        {services.map((s) => (
+          <a href={`/services/${s.slug}/`} class="service-card">
+            <div class="service-image">
+              <img src={s.image} alt={s.name} loading="lazy" />
+            </div>
+            <div class="service-info">
+              <h3>{s.name}</h3>
+              <p>{s.shortDescription}</p>
+              <span class="service-link">Learn More &rarr;</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="cta-banner">
+    <div class="container cta-content">
+      <p class="cta-text">If you want to make your <em>life an adventure</em>,</p>
+      <p class="cta-text">let us help you along the journey!</p>
+      <a href={site.enquiryFormUrl} class="cta-btn" target="_blank" rel="noopener noreferrer">Enquire</a>
+    </div>
+    <!-- Teal organic wave at bottom of CTA -->
+    <div class="cta-wave-bottom">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="var(--color-primary)" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+</Base>
+
+<style>
+  /* Hero Slideshow */
+  .hero {
+    position: relative;
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero-slides {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+  .hero-slide {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    animation: heroFade 10s ease-in-out infinite;
+  }
+  .hero-slide-1 {
+    background-image: url('/images/hero-therapy-services.jpg');
+    animation-delay: 0s;
+  }
+  .hero-slide-2 {
+    background-image: url('/images/hero-walking-park.jpg');
+    animation-delay: 5s;
+  }
+  @keyframes heroFade {
+    0%, 40% { opacity: 1; }
+    50%, 90% { opacity: 0; }
+    100% { opacity: 1; }
+  }
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1));
+    z-index: 1;
+  }
+  .hero-content {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    padding: 5rem 1.5rem 8rem;
+  }
+  .hero-tagline {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: #fff;
+    margin-bottom: 2rem;
+    text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+    font-weight: 500;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.9rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(21,182,182,0.3);
+  }
+  .hero-cta:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(21,182,182,0.4);
+  }
+
+  /* Teal organic wave at hero bottom */
+  .hero-wave-teal {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    line-height: 0;
+    z-index: 3;
+  }
+  .hero-wave-teal svg {
+    width: 100%;
+    height: 120px;
+    display: block;
+  }
+
+  /* Heading section below hero */
+  .hero-heading {
+    background: var(--color-primary);
+    padding: 0 1.5rem 1.5rem;
+    text-align: center;
+  }
+  .hero-heading h1 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    color: #fff;
+    font-weight: 700;
+    font-style: italic;
+  }
+
+  /* What We Do - Service Icon Grid */
+  .what-we-do {
+    padding: 4rem 0;
+  }
+  .what-we-do h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text);
+  }
+  .service-icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .service-icon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-text);
+    transition: transform 0.2s;
+    text-align: center;
+  }
+  .service-icon-card:hover {
+    transform: translateY(-4px);
+  }
+  .icon-card-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 3px solid var(--color-primary-light);
+  }
+  .icon-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .icon-card-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--color-primary);
+  }
+
+  /* Who We Work With */
+  .who-we-work-with {
+    padding: 4rem 0;
+    background: var(--color-bg-light);
+  }
+  .who-we-work-with h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text);
+  }
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .who-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .who-tile-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 3px solid var(--color-primary-light);
+  }
+  .who-tile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .who-tile-label {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text);
+    line-height: 1.3;
+  }
+
+  /* Story */
+  .story {
+    padding: 4rem 0;
+  }
+  .story h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text);
+  }
+  .story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .story-heading {
+    color: var(--color-primary);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+    margin-top: 1.5rem;
+  }
+  .story-heading:first-child {
+    margin-top: 0;
+  }
+  .story-col p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+  .story-col a {
+    color: var(--color-primary);
+  }
+  .values-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .value-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+  .value-item img {
+    border-radius: 50%;
+  }
+
+  /* Services Preview */
+  .services-preview {
+    padding: 4rem 0;
+    background: var(--color-bg-light);
+  }
+  .services-preview h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+    color: var(--color-text);
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  .service-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  }
+  .service-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .service-info {
+    padding: 1.25rem;
+  }
+  .service-info h3 {
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+  .service-info p {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .service-link {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  /* CTA Banner - light teal gradient like WP */
+  .cta-banner {
+    background: linear-gradient(rgba(179, 232, 242, 0.87) 75%, #ffffff);
+    padding: 4rem 1.5rem 0;
+    text-align: center;
+    position: relative;
+  }
+  .cta-text {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    color: var(--color-text);
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+  }
+  .cta-text em {
+    font-style: italic;
+    font-weight: 600;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--color-accent);
+    color: #fff;
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-top: 1.5rem;
+    transition: all 0.3s;
+  }
+  .cta-btn:hover {
+    background: #e0533c;
+    transform: translateY(-2px);
+  }
+  .cta-wave-bottom {
+    line-height: 0;
+    margin-top: 2rem;
+  }
+  .cta-wave-bottom svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    .story-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-icon-grid {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: 1rem;
+    }
+    .who-grid {
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1rem;
+    }
+    .icon-card-image {
+      width: 90px;
+      height: 90px;
+    }
+    .who-tile-image {
+      width: 80px;
+      height: 80px;
+    }
+  }
+</style>

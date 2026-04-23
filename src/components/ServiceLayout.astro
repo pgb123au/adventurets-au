@@ -1,0 +1,179 @@
+---
+import Base from '../layouts/Base.astro';
+import { site } from '../data/site';
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+}
+
+const { title, description, image } = Astro.props;
+---
+
+<Base title={title} description={description} image={image}>
+  <section class="page-header">
+    <h1>{title}</h1>
+    <div class="header-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#ffffff" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="service-content">
+    <div class="container">
+      <a href="/services/" class="back-btn">&larr; Back to Services Page</a>
+      <slot />
+    </div>
+  </section>
+
+  <section class="service-cta">
+    <div class="container">
+      <p>Ready to get started?</p>
+      <a href={site.enquiryFormUrl} class="cta-btn" target="_blank" rel="noopener noreferrer">Enquire Now</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .page-header {
+    background: var(--color-primary);
+    padding: 3rem 1.5rem 0;
+    text-align: center;
+    position: relative;
+  }
+  .page-header h1 {
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    color: #fff;
+    margin-bottom: 0;
+  }
+  .header-wave {
+    line-height: 0;
+    margin-top: 1rem;
+  }
+  .header-wave svg {
+    width: 100%;
+    height: 100px;
+    display: block;
+  }
+  .back-btn {
+    display: inline-block;
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+    margin-bottom: 2rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-primary);
+    border-radius: 6px;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+  }
+  .back-btn:hover {
+    background: var(--color-primary);
+    color: #fff;
+  }
+  .service-content {
+    padding: 3rem 0;
+  }
+  .service-content :global(h2) {
+    font-size: 1.5rem;
+    color: var(--color-primary);
+    margin: 2rem 0 1rem;
+  }
+  .service-content :global(h2:first-child) {
+    margin-top: 0;
+  }
+  .service-content :global(p) {
+    color: var(--color-text-light);
+    line-height: 1.7;
+    margin-bottom: 1rem;
+    max-width: 800px;
+  }
+  .service-content :global(ul) {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    max-width: 800px;
+  }
+  .service-content :global(li) {
+    list-style: disc;
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+  }
+  .service-content :global(.steps) {
+    max-width: 800px;
+    margin: 2rem 0;
+  }
+  .service-content :global(.step) {
+    display: grid;
+    grid-template-columns: 48px 1fr;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+    align-items: start;
+  }
+  .service-content :global(.step-number) {
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .service-content :global(.step h3) {
+    font-size: 1.15rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+  }
+  .service-content :global(.step p) {
+    margin-bottom: 0.5rem;
+  }
+  .service-content :global(.hero-image) {
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    max-height: 400px;
+    width: 100%;
+    object-fit: cover;
+  }
+  .service-content :global(.image-gallery) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+  .service-content :global(.image-gallery img) {
+    border-radius: 8px;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  .service-cta {
+    background: var(--color-bg-light);
+    padding: 3rem 0;
+    text-align: center;
+  }
+  .service-cta p {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s;
+  }
+  .cta-btn:hover {
+    background: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+</style>

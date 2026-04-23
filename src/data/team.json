@@ -1,0 +1,87 @@
+{
+  "items": [
+    {
+      "name": "Katherine Stewart",
+      "shortName": "Kat",
+      "slug": "katherine-stewart",
+      "role": "Director & Occupational Therapist",
+      "workDays": "Monday - Thursday",
+      "workTimes": "10:00am - 6:00pm",
+      "image": "/images/team/katherine-stewart.jpg",
+      "specialInterests": [
+        "Psycho-social OT services",
+        "Equine-assisted therapy",
+        "Outdoor therapy",
+        "Parent Coaching",
+        "Qualified Neuro-Linguistic Practitioner"
+      ],
+      "serviceTypes": [
+        "Outdoor clinic",
+        "Telehealth",
+        "In-home consultations"
+      ],
+      "bio": [
+        "Kat wears many hats. Outside of her work in Adventure Therapy services, she finds joy in various pursuits. Whether it's training and competing with her horses, exploring the outdoors alongside her loyal dog Skipper, or embarking on adventures with her partner and friends, Kat thrives on experiences that connect her to both people and animals.",
+        "In her professional capacity, Kat is deeply passionate about empowering individuals. She believes that stability is the foundation for creating one's own adventures and memorable moments. As an Occupational Therapist, Kat collaborates with people to build essential skills, engage in meaningful activities, and foster their own social connections.",
+        "But Kat's interests extend beyond her professional life. Music is her soul's rhythm. She loves to sing, dance, and perform. Her dream? To master the guitar, violin, and piano. And here's the intriguing twist: Kat possesses a hidden talent\u2014she can sing like a male opera singer, hitting notes that resonate with passion and power.",
+        "When she's not immersed in melodies, Kat dives into books. She gets lost in the stories of other lives, exploring different periods and places. From historical sagas to tales of distant lands, Kat's curiosity knows no bounds.",
+        "Her journey began early\u2014helping her father, John, as he provided mobile veterinary services. Dogs, cats, birds, cows, horses, sheep\u2014the array of animals she encountered left an indelible mark on her compassionate heart.",
+        "Katherine Stewart embodies adventure, music, and empathy. Her commitment to enriching lives through connection and empowerment shines brightly, whether she's riding the trails, singing arias, or turning pages in a captivating novel."
+      ]
+    },
+    {
+      "name": "Rainy Streeter-Gillard",
+      "shortName": "Rainy",
+      "slug": "rainy-streeter-gillard",
+      "role": "Occupational Therapist",
+      "workDays": "Monday - Friday",
+      "workTimes": "9:00am - 5:30pm",
+      "image": "/images/team/rainy-streeter-gillard.jpg",
+      "specialInterests": [
+        "Equine-assisted occupational therapy",
+        "Equestrian coaching - Equestrian Australia National Coaching Accreditation",
+        "Home & community OT services",
+        "Primitive reflex & hemispheric integration",
+        "MARAM family violence trained therapist",
+        "Montreal Cognitive Assessment trained therapist"
+      ],
+      "serviceTypes": [
+        "Outdoor clinic",
+        "In-home consultations",
+        "School-based services"
+      ],
+      "bio": [
+        "Rainy brings a unique blend of occupational therapy expertise and equestrian coaching to Adventure Therapy Services. With her Equestrian Australia National Coaching Accreditation, she bridges the gap between therapeutic intervention and the powerful connection between humans and horses.",
+        "Her background in home and community OT services gives her a deep understanding of how to support clients in their everyday environments. Rainy is passionate about primitive reflex integration and hemispheric integration, helping clients overcome developmental challenges through targeted movement programs.",
+        "As a MARAM family violence trained therapist, Rainy brings sensitivity and understanding to clients who may have experienced trauma. Her Montreal Cognitive Assessment training allows her to work effectively with clients across a range of cognitive abilities.",
+        "Outside of work, Rainy can be found with her horses, continuing to develop her equestrian skills and deepening the bond she shares with these magnificent animals."
+      ]
+    },
+    {
+      "name": "Joan Stanton",
+      "shortName": "Joan",
+      "slug": "joan-stanton",
+      "role": "Allied Health Assistant",
+      "workDays": "Monday - Friday",
+      "workTimes": "9:00am - 6:00pm",
+      "image": "/images/team/joan-stanton.png",
+      "specialInterests": [
+        "Sensorimotor Art Therapy",
+        "Psycho-social OT services",
+        "Outdoor therapy",
+        "Parent Coaching",
+        "Qualified Emmett & Bowen Therapist",
+        "Tension & Trauma Releasing Exercises (TRE)"
+      ],
+      "serviceTypes": [
+        "Outdoor clinic",
+        "Community-based services"
+      ],
+      "bio": [
+        "Joan is a valued member of the Adventure Therapy Services team, bringing a diverse skill set as an Allied Health Assistant. Her qualifications as an Emmett & Bowen Therapist, combined with her training in Tension & Trauma Releasing Exercises (TRE), give her unique tools to support clients in their therapeutic journey.",
+        "Joan is passionate about Sensorimotor Art Therapy, using creative expression as a pathway to healing and growth. Her experience in psycho-social OT services and outdoor therapy allows her to connect with clients in meaningful ways across various settings.",
+        "As a parent coaching specialist, Joan understands the importance of involving families in the therapeutic process. She works collaboratively with parents to develop strategies that extend the benefits of therapy into everyday family life."
+      ]
+    }
+  ]
+}

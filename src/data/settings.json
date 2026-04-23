@@ -1,0 +1,17 @@
+{
+  "name": "Adventure Therapy Services",
+  "shortName": "ATS",
+  "domain": "adventurets.com.au",
+  "tagline": "If you want to make your life an adventure, let us help you along the journey",
+  "description": "Adventure Therapy Services provides occupational therapy in Pakenham, Victoria. Specialising in equine-assisted therapy, art therapy, outdoor therapy, primitive reflex integration, and nature-based interventions for children, youth and families.",
+  "email": "hello@AdventureTS.com.au",
+  "address": {
+    "street": "309 Army Road",
+    "suburb": "Pakenham",
+    "state": "Victoria",
+    "postcode": "3810",
+    "full": "309 Army Road, Pakenham, Victoria 3810"
+  },
+  "enquiryFormUrl": "https://form.jotform.com/203617874399066",
+  "gaId": ""
+}
