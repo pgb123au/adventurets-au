@@ -4,12 +4,12 @@
   "whatWeDoTitle": "What We Do",
   "whoWeWorkWithTitle": "Who We Work With",
   "whoWeWorkWith": [
-    { "name": "Kids & Youth", "image": "/images/wp-assets/harry-grout-ivfmiQ5FbHw-unsplash-scaled.webp" },
-    { "name": "Families", "image": "/images/wp-assets/annie-spratt-xKJUnFwfz3s-unsplash-1-scaled.webp" },
-    { "name": "Young Adults", "image": "/images/wp-assets/jeremiah-lawrence-IXiGMtCrQPg-unsplash-scaled.webp" },
-    { "name": "Parents", "image": "/images/wp-assets/kaitlyn-baker-vZJdYl5JVXY-unsplash-scaled.webp" },
-    { "name": "Individuals experiencing mental health challenges", "image": "/images/wp-assets/annie-spratt-A2bvXVD5qgo-unsplash-scaled.webp" },
-    { "name": "Individuals interested in horses, animals, and nature", "image": "/images/wp-assets/IMG_6664-scaled.webp" }
+    { "name": "Kids & Youth", "image": "/images/who/kids-youth.webp" },
+    { "name": "Families", "image": "/images/who/families.webp" },
+    { "name": "Young Adults", "image": "/images/who/young-adults.webp" },
+    { "name": "Parents", "image": "/images/who/parents.webp" },
+    { "name": "Individuals experiencing mental health challenges", "image": "/images/who/mental-health.webp" },
+    { "name": "Individuals interested in horses, animals, and nature", "image": "/images/who/horses-animals-nature.webp" }
   ],
   "purpose": "ATS Founders, Nicky and Kat both experienced physical injuries and mental health challenges in their younger years. This created their drive to support others through their own unique journey. Find out more about the experiences that created the purpose behind ATS.",
   "mission": "ATS exists to support recovery and facilitate growth. We do this by building skills for life and sharing the empowering qualities of animals and nature."

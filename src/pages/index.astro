@@ -12,6 +12,7 @@ const whoIcons = homepage.whoWeWorkWith;
     <div class="hero-slides">
       <div class="hero-slide hero-slide-1"></div>
       <div class="hero-slide hero-slide-2"></div>
+      <div class="hero-slide hero-slide-3"></div>
     </div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
@@ -151,7 +152,8 @@ const whoIcons = homepage.whoWeWorkWith;
     inset: 0;
     background-size: cover;
     background-position: center;
-    animation: heroFade 10s ease-in-out infinite;
+    opacity: 0;
+    animation: heroFade 15s ease-in-out infinite;
   }
   .hero-slide-1 {
     background-image: url('/images/hero-therapy-services.jpg');
@@ -161,10 +163,14 @@ const whoIcons = homepage.whoWeWorkWith;
     background-image: url('/images/hero-walking-park.jpg');
     animation-delay: 5s;
   }
+  .hero-slide-3 {
+    background-image: url('/images/hero-3.webp');
+    animation-delay: 10s;
+  }
   @keyframes heroFade {
-    0%, 40% { opacity: 1; }
-    50%, 90% { opacity: 0; }
-    100% { opacity: 1; }
+    0%, 5% { opacity: 0; }
+    8%, 28% { opacity: 1; }
+    33%, 100% { opacity: 0; }
   }
   .hero-overlay {
     position: absolute;

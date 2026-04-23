@@ -22,25 +22,25 @@
       "name": "Parent Coaching",
       "slug": "parent-coaching",
       "shortDescription": "When working with a child with a disability, it is best practice for the parent to be involved so that therapy is most effective.",
-      "image": "/images/services/parent-coaching.jpg"
+      "image": "/images/services/parent-coaching-new.webp"
     },
     {
       "name": "Social Connection Group",
       "slug": "social-skills-group-therapy",
       "shortDescription": "Dynamic occupational therapy social connection groups tailored to enhance social interaction and foster meaningful connections among participants.",
-      "image": "/images/services/social-skills.jpg"
+      "image": "/images/services/social-connection-group.webp"
     },
     {
       "name": "Art Therapy",
       "slug": "art-therapy",
       "shortDescription": "Creative expression as a pathway to healing and growth. Our art therapy sessions use sensorimotor approaches to support regulation, self-expression, and wellbeing.",
-      "image": "/images/services/art-therapy.jpg"
+      "image": "/images/services/art-therapy.webp"
     },
     {
       "name": "Outdoor Therapy",
       "slug": "outdoor-therapy",
       "shortDescription": "Nature-based therapeutic interventions that harness the healing power of the outdoors to build skills, confidence, and connection.",
-      "image": "/images/services/outdoor-therapy.jpg"
+      "image": "/images/services/outdoor-therapy.webp"
     },
     {
       "name": "NDIS Plan Reviews & Functional Capacity Assessments",
