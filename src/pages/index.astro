@@ -128,10 +128,15 @@ const whoIcons = homepage.whoWeWorkWith;
       <p class="cta-text">let us help you along the journey!</p>
       <a href={site.enquiryFormUrl} class="cta-btn" target="_blank" rel="noopener noreferrer">Enquire</a>
     </div>
-    <!-- Teal organic wave at bottom of CTA -->
-    <div class="cta-wave-bottom">
+    <!-- Bottom wave — dual layer matching hero -->
+    <div class="cta-wave-solid">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="var(--color-primary)" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+        <path fill="#15b6b6" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+    <div class="cta-wave-transparent">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="rgba(21,182,182,0.65)" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
       </svg>
     </div>
   </section>
@@ -160,7 +165,7 @@ const whoIcons = homepage.whoWeWorkWith;
     background-size: cover;
     background-position: center;
     opacity: 0;
-    animation: heroFade 15s ease-in-out infinite;
+    animation: heroFade 30s ease-in-out infinite;
   }
   .hero-slide-1 {
     background-image: url('/images/hero-therapy-services.jpg');
@@ -168,15 +173,20 @@ const whoIcons = homepage.whoWeWorkWith;
   }
   .hero-slide-2 {
     background-image: url('/images/hero-walking-park.jpg');
-    animation-delay: 5s;
+    animation-delay: 10s;
   }
   .hero-slide-3 {
     background-image: url('/images/hero-3.webp');
-    animation-delay: 10s;
+    animation-delay: 20s;
   }
+  /* Each slide visible ~9s, with 1.5s crossfades.
+     0-5%   = fading in
+     5-30%  = fully visible (~7.5s)
+     30-33% = fading out
+     33-100% = next slide's turn */
   @keyframes heroFade {
     0%, 5% { opacity: 0; }
-    8%, 28% { opacity: 1; }
+    8%, 30% { opacity: 1; }
     33%, 100% { opacity: 0; }
   }
   .hero-overlay {
@@ -258,7 +268,7 @@ const whoIcons = homepage.whoWeWorkWith;
     font-style: italic;
   }
 
-  /* What We Do - Service Icon Grid */
+  /* What We Do - Service Icon Grid (4 across max, centred) */
   .what-we-do {
     padding: 4rem 0;
   }
@@ -269,13 +279,16 @@ const whoIcons = homepage.whoWeWorkWith;
     color: var(--color-text);
   }
   .service-icon-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     max-width: 1000px;
     margin: 0 auto;
   }
   .service-icon-card {
+    flex: 0 0 calc(25% - 1.125rem);
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -320,13 +333,16 @@ const whoIcons = homepage.whoWeWorkWith;
     color: var(--color-text);
   }
   .who-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 1.5rem;
     max-width: 900px;
     margin: 0 auto;
   }
   .who-tile {
+    flex: 0 0 calc(25% - 1.125rem);
+    max-width: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -500,13 +516,28 @@ const whoIcons = homepage.whoWeWorkWith;
     background: #e0533c;
     transform: translateY(-2px);
   }
-  .cta-wave-bottom {
+  /* CTA dual-layer wave (matches hero) */
+  .cta-wave-solid,
+  .cta-wave-transparent {
     line-height: 0;
+    pointer-events: none;
+  }
+  .cta-wave-solid {
     margin-top: 2rem;
   }
-  .cta-wave-bottom svg {
+  .cta-wave-solid svg {
     width: 100%;
-    height: 100px;
+    height: 70px;
+    display: block;
+  }
+  .cta-wave-transparent {
+    position: relative;
+    margin-top: -120px;
+    z-index: 2;
+  }
+  .cta-wave-transparent svg {
+    width: 100%;
+    height: 120px;
     display: block;
   }
 
@@ -518,12 +549,16 @@ const whoIcons = homepage.whoWeWorkWith;
     .services-grid {
       grid-template-columns: 1fr;
     }
-    .service-icon-grid {
-      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-      gap: 1rem;
+    .service-icon-card {
+      flex: 0 0 calc(33.333% - 1rem);
+      max-width: 160px;
     }
+    .who-tile {
+      flex: 0 0 calc(33.333% - 1rem);
+      max-width: 140px;
+    }
+    .service-icon-grid,
     .who-grid {
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
       gap: 1rem;
     }
     .icon-card-image {
@@ -534,11 +569,22 @@ const whoIcons = homepage.whoWeWorkWith;
       width: 80px;
       height: 80px;
     }
-    .hero-wave-transparent svg {
+    .hero-wave-transparent svg,
+    .cta-wave-transparent svg {
       height: 55px;
     }
-    .hero-wave-solid svg {
+    .hero-wave-solid svg,
+    .cta-wave-solid svg {
       height: 35px;
+    }
+    .cta-wave-transparent {
+      margin-top: -55px;
+    }
+  }
+  @media (max-width: 480px) {
+    .service-icon-card,
+    .who-tile {
+      flex: 0 0 calc(50% - 0.5rem);
     }
   }
 </style>
