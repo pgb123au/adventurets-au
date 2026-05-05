@@ -19,17 +19,16 @@ const whoIcons = homepage.whoWeWorkWith;
       <p class="hero-tagline">{site.tagline}</p>
       <a href={site.enquiryFormUrl} class="hero-cta" target="_blank" rel="noopener noreferrer">Enquire Now</a>
     </div>
-    <!-- Three stacked solid teal waves — exact mirror of WP Oxygen oxy_shape_divider stack
-         (heights 120/100/70 like adventurets.com.au, all currentColor=#15b6b6, no transparency).
-         The visual depth comes from the offsets, not opacity. -->
+    <!-- Hero bottom waves — exact mirror of WP Oxygen 3-layer divider stack.
+         Recipe (from live adventurets.com.au scrape):
+         - Back: semi-transparent teal rgba(21,182,182,0.65), h=120 — creates the lighter "glow"
+         - Mid:  solid teal #15b6b6, h=70 — creates the strong solid teal band
+         The 2-tone effect (lighter at top of wave, solid below) is the visual that distinguishes
+         WP from a flat single-colour wave. The .hero-heading section's solid teal bg below
+         continues the colour visually so no front-mask layer is needed. -->
     <div class="hero-wave hero-wave-back">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
-      </svg>
-    </div>
-    <div class="hero-wave hero-wave-mid">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+        <path fill="rgba(21,182,182,0.65)" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
       </svg>
     </div>
     <div class="hero-wave hero-wave-front">
@@ -126,18 +125,26 @@ const whoIcons = homepage.whoWeWorkWith;
     </div>
   </section>
 
-  <!-- CTA Banner -->
+  <!-- CTA Banner — light cyan section with 2-layer wave at BOTTOM (matches WP).
+       Wave transitions OUT of the cyan, down into the dark footer below. -->
   <section class="cta-banner">
-    <!-- Solid teal wave at TOP — transitions from white above to light teal CTA below -->
-    <div class="cta-wave">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
-      </svg>
-    </div>
     <div class="container cta-content">
       <p class="cta-text">If you want to make your <em>life an adventure</em>,</p>
       <p class="cta-text">let us help you along the journey!</p>
       <a href={site.enquiryFormUrl} class="cta-btn" target="_blank" rel="noopener noreferrer">Enquire</a>
+    </div>
+    <!-- Wave at BOTTOM of CTA — semi-trans teal back + solid teal front, then footer-coloured front mask
+         that bleeds into the dark footer below. The path is the same wave shape used at the hero,
+         so the brand wave is visually consistent. -->
+    <div class="cta-wave cta-wave-back">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="rgba(21,182,182,0.65)" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+    <div class="cta-wave cta-wave-mid">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
     </div>
   </section>
 </Base>
@@ -226,9 +233,12 @@ const whoIcons = homepage.whoWeWorkWith;
     box-shadow: 0 6px 20px rgba(21,182,182,0.4);
   }
 
-  /* Three stacked solid teal waves — exact mirror of WP Oxygen oxy_shape_divider stack.
-     Each layer is positioned so its bottom edge aligns with the bottom of the hero,
-     creating a layered/depth effect. All solid teal, no transparency. */
+  /* Hero 2-layer wave — matches WP Oxygen 2-tone effect:
+     - Back layer: semi-transparent teal (h=120) — visible above the front layer's curve as a
+       lighter/desaturated band. This creates the "lighter teal at top of wave" look.
+     - Front layer: solid teal (h=70) — visible solid teal at the bottom of the wave.
+     Both anchored to bottom of hero. The .hero-heading section's solid teal bg below
+     continues the colour visually (no front-mask needed because both waves are teal-on-teal). */
   .hero-wave {
     position: absolute;
     bottom: -1px;
@@ -238,14 +248,9 @@ const whoIcons = homepage.whoWeWorkWith;
     pointer-events: none;
   }
   .hero-wave svg { width: 100%; display: block; }
-  /* Back wave: tallest (120px), behind */
   .hero-wave-back  { z-index: 3; }
   .hero-wave-back  svg { height: 120px; }
-  /* Mid wave: 100px */
-  .hero-wave-mid   { z-index: 4; }
-  .hero-wave-mid   svg { height: 100px; }
-  /* Front wave: shortest (70px), in front */
-  .hero-wave-front { z-index: 5; }
+  .hero-wave-front { z-index: 4; }
   .hero-wave-front svg { height: 70px; }
 
   /* Heading section below hero */
@@ -476,14 +481,16 @@ const whoIcons = homepage.whoWeWorkWith;
     font-size: 0.9rem;
   }
 
-  /* CTA Banner - light teal background with dark teal wave at top */
+  /* CTA Banner — light cyan background, 2-layer wave at BOTTOM (matches WP).
+     Wave transitions OUT of the cyan, down into the dark footer below. The wave's
+     visual edge appears AT THE BOTTOM of the cyan section, identical to WP. */
   .cta-banner {
     background: rgba(179, 232, 242, 0.87);
-    padding: 0 1.5rem 4rem;
+    padding: 4rem 1.5rem 8rem;   /* extra bottom padding makes room for the 120px wave */
     text-align: center;
     position: relative;
+    overflow: hidden;
   }
-  .cta-banner .cta-content { padding-top: 2.5rem; }
   .cta-text {
     font-size: clamp(1.3rem, 3vw, 2rem);
     color: var(--color-text);
@@ -510,16 +517,20 @@ const whoIcons = homepage.whoWeWorkWith;
     background: #e0533c;
     transform: translateY(-2px);
   }
-  /* CTA: single solid teal wave at top, matches WP visual */
-  .cta-banner { position: relative; padding-top: 0; }
+  /* CTA wave: 2 layers anchored to BOTTOM of cyan section, transitioning into the footer. */
   .cta-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
     line-height: 0;
     pointer-events: none;
-    margin-top: 0;
   }
-  .cta-wave svg { width: 100%; height: 100px; display: block; }
-  /* Push CTA content down so it sits below the wave */
-  .cta-banner > .cta-content { padding-top: 3rem; }
+  .cta-wave svg { width: 100%; display: block; }
+  .cta-wave-back { z-index: 3; }
+  .cta-wave-back svg { height: 120px; }
+  .cta-wave-mid  { z-index: 4; }
+  .cta-wave-mid  svg { height: 70px; }
 
   @media (max-width: 768px) {
     .story-grid {
@@ -549,10 +560,9 @@ const whoIcons = homepage.whoWeWorkWith;
       width: 80px;
       height: 80px;
     }
-    .hero-wave-back  svg, .cta-wave-back  svg { height: 55px; }
-    .hero-wave-mid   svg, .cta-wave-mid   svg { height: 45px; }
-    .hero-wave-front svg, .cta-wave-front svg { height: 35px; }
-    .cta-banner > .cta-content { padding-top: 4rem; }
+    .hero-wave-back  svg, .cta-wave-back  svg { height: 70px; }
+    .hero-wave-front svg, .cta-wave-mid   svg { height: 40px; }
+    .cta-banner { padding: 3rem 1.5rem 5rem; }
   }
   @media (max-width: 480px) {
     .service-icon-card,
