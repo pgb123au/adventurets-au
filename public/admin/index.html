@@ -4,9 +4,43 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adventure Therapy Services - Content Editor</title>
+  <!-- Identity widget loaded BEFORE Decap so logout/login handlers can attach -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
-  <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <!-- Decap CMS pinned to a specific known-good patch version (latest stable
+       at deploy time). The "^3.0.0" range that was here previously could pull
+       in untested patch releases. Pinning + the logout cleanup script below
+       removes the "Cannot read properties of undefined (reading 'hasWriteAccess')"
+       error that Stephanie hit after logging out. -->
+  <script src="https://unpkg.com/decap-cms@3.12.2/dist/decap-cms.js"></script>
+  <script>
+    // Logout cleanup: clear any cached CMS user state and force a fresh
+    // /admin/ load so Decap re-initialises against a known-empty session.
+    (function () {
+      function attach() {
+        if (!window.netlifyIdentity) return false;
+        window.netlifyIdentity.on('logout', function () {
+          try {
+            Object.keys(localStorage).forEach(function (k) {
+              if (k.indexOf('netlify-cms-') === 0 || k.indexOf('decap-cms-') === 0 || k === 'gotrue.user') {
+                localStorage.removeItem(k);
+              }
+            });
+            sessionStorage.clear();
+          } catch (e) { /* ignore quota / cross-origin storage errors */ }
+          window.location.replace('/admin/');
+        });
+        return true;
+      }
+      if (!attach()) {
+        // Widget script may not have parsed yet — retry briefly.
+        var tries = 0;
+        var t = setInterval(function () {
+          if (attach() || ++tries > 50) clearInterval(t);
+        }, 100);
+      }
+    })();
+  </script>
 </body>
 </html>

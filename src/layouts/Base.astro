@@ -96,18 +96,21 @@ const ogImage = image || '/images/logo.png';
     <slot />
   </main>
   <Footer />
-  <!-- Netlify Identity widget for Decap CMS login redirect -->
+  <!-- Netlify Identity widget — loaded BEFORE the init listener so the
+       window.netlifyIdentity global is defined when our script runs. -->
+  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script is:inline>
+    // After login from the homepage modal, redirect new editors to /admin/.
+    // (Existing editors who already have a session see no redirect.)
     if (window.netlifyIdentity) {
-      window.netlifyIdentity.on("init", user => {
+      window.netlifyIdentity.on("init", function (user) {
         if (!user) {
-          window.netlifyIdentity.on("login", () => {
+          window.netlifyIdentity.on("login", function () {
             document.location.href = "/admin/";
           });
         }
       });
     }
   </script>
-  <script is:inline src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </body>
 </html>

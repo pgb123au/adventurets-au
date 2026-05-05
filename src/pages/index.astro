@@ -19,17 +19,22 @@ const whoIcons = homepage.whoWeWorkWith;
       <p class="hero-tagline">{site.tagline}</p>
       <a href={site.enquiryFormUrl} class="hero-cta" target="_blank" rel="noopener noreferrer">Enquire Now</a>
     </div>
-    <!-- Two stacked teal waves matching WP Oxygen shape dividers -->
-    <!-- Back wave: solid teal, shorter (70px) -->
-    <div class="hero-wave-solid">
+    <!-- Three stacked solid teal waves — exact mirror of WP Oxygen oxy_shape_divider stack
+         (heights 120/100/70 like adventurets.com.au, all currentColor=#15b6b6, no transparency).
+         The visual depth comes from the offsets, not opacity. -->
+    <div class="hero-wave hero-wave-back">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#15b6b6" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
       </svg>
     </div>
-    <!-- Front wave: semi-transparent teal, taller (120px) -->
-    <div class="hero-wave-transparent">
+    <div class="hero-wave hero-wave-mid">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="rgba(21,182,182,0.65)" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
+    <div class="hero-wave hero-wave-front">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
       </svg>
     </div>
   </section>
@@ -123,21 +128,16 @@ const whoIcons = homepage.whoWeWorkWith;
 
   <!-- CTA Banner -->
   <section class="cta-banner">
+    <!-- Solid teal wave at TOP — transitions from white above to light teal CTA below -->
+    <div class="cta-wave">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
+        <path fill="#15b6b6" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
+      </svg>
+    </div>
     <div class="container cta-content">
       <p class="cta-text">If you want to make your <em>life an adventure</em>,</p>
       <p class="cta-text">let us help you along the journey!</p>
       <a href={site.enquiryFormUrl} class="cta-btn" target="_blank" rel="noopener noreferrer">Enquire</a>
-    </div>
-    <!-- Bottom wave — dual layer matching hero -->
-    <div class="cta-wave-solid">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="#15b6b6" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
-      </svg>
-    </div>
-    <div class="cta-wave-transparent">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none">
-        <path fill="rgba(21,182,182,0.65)" fill-opacity="1" d="M0,224L48,240C96,256,192,288,288,256C384,224,480,128,576,80C672,32,768,32,864,69.3C960,107,1056,181,1152,176C1248,171,1344,85,1392,42.7L1440,0L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"/>
-      </svg>
     </div>
   </section>
 </Base>
@@ -226,9 +226,10 @@ const whoIcons = homepage.whoWeWorkWith;
     box-shadow: 0 6px 20px rgba(21,182,182,0.4);
   }
 
-  /* Two stacked teal waves at hero bottom (matching WP Oxygen) */
-  .hero-wave-solid,
-  .hero-wave-transparent {
+  /* Three stacked solid teal waves — exact mirror of WP Oxygen oxy_shape_divider stack.
+     Each layer is positioned so its bottom edge aligns with the bottom of the hero,
+     creating a layered/depth effect. All solid teal, no transparency. */
+  .hero-wave {
     position: absolute;
     bottom: -1px;
     left: 0;
@@ -236,24 +237,16 @@ const whoIcons = homepage.whoWeWorkWith;
     line-height: 0;
     pointer-events: none;
   }
-  /* Back wave: solid teal, shorter */
-  .hero-wave-solid {
-    z-index: 3;
-  }
-  .hero-wave-solid svg {
-    width: 100%;
-    height: 70px;
-    display: block;
-  }
-  /* Front wave: semi-transparent teal, taller, on top */
-  .hero-wave-transparent {
-    z-index: 4;
-  }
-  .hero-wave-transparent svg {
-    width: 100%;
-    height: 120px;
-    display: block;
-  }
+  .hero-wave svg { width: 100%; display: block; }
+  /* Back wave: tallest (120px), behind */
+  .hero-wave-back  { z-index: 3; }
+  .hero-wave-back  svg { height: 120px; }
+  /* Mid wave: 100px */
+  .hero-wave-mid   { z-index: 4; }
+  .hero-wave-mid   svg { height: 100px; }
+  /* Front wave: shortest (70px), in front */
+  .hero-wave-front { z-index: 5; }
+  .hero-wave-front svg { height: 70px; }
 
   /* Heading section below hero */
   .hero-heading {
@@ -483,13 +476,14 @@ const whoIcons = homepage.whoWeWorkWith;
     font-size: 0.9rem;
   }
 
-  /* CTA Banner - light teal gradient like WP */
+  /* CTA Banner - light teal background with dark teal wave at top */
   .cta-banner {
-    background: linear-gradient(rgba(179, 232, 242, 0.87) 75%, #ffffff);
-    padding: 4rem 1.5rem 0;
+    background: rgba(179, 232, 242, 0.87);
+    padding: 0 1.5rem 4rem;
     text-align: center;
     position: relative;
   }
+  .cta-banner .cta-content { padding-top: 2.5rem; }
   .cta-text {
     font-size: clamp(1.3rem, 3vw, 2rem);
     color: var(--color-text);
@@ -516,30 +510,16 @@ const whoIcons = homepage.whoWeWorkWith;
     background: #e0533c;
     transform: translateY(-2px);
   }
-  /* CTA dual-layer wave (matches hero) */
-  .cta-wave-solid,
-  .cta-wave-transparent {
+  /* CTA: single solid teal wave at top, matches WP visual */
+  .cta-banner { position: relative; padding-top: 0; }
+  .cta-wave {
     line-height: 0;
     pointer-events: none;
+    margin-top: 0;
   }
-  .cta-wave-solid {
-    margin-top: 2rem;
-  }
-  .cta-wave-solid svg {
-    width: 100%;
-    height: 70px;
-    display: block;
-  }
-  .cta-wave-transparent {
-    position: relative;
-    margin-top: -120px;
-    z-index: 2;
-  }
-  .cta-wave-transparent svg {
-    width: 100%;
-    height: 120px;
-    display: block;
-  }
+  .cta-wave svg { width: 100%; height: 100px; display: block; }
+  /* Push CTA content down so it sits below the wave */
+  .cta-banner > .cta-content { padding-top: 3rem; }
 
   @media (max-width: 768px) {
     .story-grid {
@@ -569,17 +549,10 @@ const whoIcons = homepage.whoWeWorkWith;
       width: 80px;
       height: 80px;
     }
-    .hero-wave-transparent svg,
-    .cta-wave-transparent svg {
-      height: 55px;
-    }
-    .hero-wave-solid svg,
-    .cta-wave-solid svg {
-      height: 35px;
-    }
-    .cta-wave-transparent {
-      margin-top: -55px;
-    }
+    .hero-wave-back  svg, .cta-wave-back  svg { height: 55px; }
+    .hero-wave-mid   svg, .cta-wave-mid   svg { height: 45px; }
+    .hero-wave-front svg, .cta-wave-front svg { height: 35px; }
+    .cta-banner > .cta-content { padding-top: 4rem; }
   }
   @media (max-width: 480px) {
     .service-icon-card,
